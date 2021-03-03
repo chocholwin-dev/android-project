@@ -138,6 +138,20 @@ fun main(){
         is Int -> println("$x is an Int")
         !is Double -> println("$x is not Double")
         is String -> println("$x is a String")
-        else -> println("$x is none of the above")
+        else -> println("$x is none of the above.")
     }
+
+    var condition = true
+        // Loops
+        // While Loop
+        // While loop executes a block of code repeatedly as long as a given condition is true
+        while(condition) {
+            // code to be executed
+        }
+     
+        var y = 1
+        while(y <= 10) {
+            println("$y ")
+            y++
+        }
 }
