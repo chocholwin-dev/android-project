@@ -41,6 +41,7 @@ fun main(){
     val myStr = "Hello World"
     var firCharInStr = myStr[0]
     var lastCharInStr = myStr[myStr.length - 1]
+    println("************End Characters*************")
 
     //Arithmetic operators (+, -, *, /, %)
     var result = 5+3
@@ -51,6 +52,7 @@ fun main(){
     result = result - 1
     var moduloResult = 5%2
     println( moduloResult)
+    println("************End Arithmetic Operators*************")
 
     //Comparison operators (==, !=, <, >, <=, >=)
     val isEqual = 5==3
@@ -68,6 +70,7 @@ fun main(){
     println("is5Greater3 ${5 > 3}")
     println("is5LowerEqual3 ${5 >= 3}")
     println("is5LowerEqual5 ${5 >= 5}")
+    println("************End Comparison Operators*************")
 
     //Assignment operators (+=, -=, *=, /=, %=)
     var myNum = 5
@@ -75,6 +78,7 @@ fun main(){
     println("myNum is $myNum")
     myNum *= 4
     println("myNum is $myNum")
+    println("************End Assignment Operators*************")
 
     //Increment & Decrement operators (++, --)
     myNum++
@@ -84,6 +88,7 @@ fun main(){
     // increments before use
     println("myNum is ${++myNum}")
     println("myNum is ${--myNum}")
+    println("************End Increment & Decrement Operators*************")
 
     // Control Flows
     // If Statements
@@ -103,6 +108,7 @@ fun main(){
     else{
         print("you're too young")
     }
+    println("\n************End If Statement*************")
 
     // Kotlin’s "when" expression is the replacement of the switch statement
     // from other languages like C, C++, and Java.
@@ -140,18 +146,64 @@ fun main(){
         is String -> println("$x is a String")
         else -> println("$x is none of the above.")
     }
+    println("************End When Expression*************")
 
+    // Loops
+    // While Loop
+    // While loop executes a block of code repeatedly as long as a given condition is true
+    /*
     var condition = true
-        // Loops
-        // While Loop
-        // While loop executes a block of code repeatedly as long as a given condition is true
-        while(condition) {
-            // code to be executed
+    while(condition) {
+         code to be executed
+    }
+    */
+
+    var y = 1
+    while(y <= 10) {
+        println("$y ")
+        y++
+    }
+    println("************End While Loop*************")
+
+    // Do while loop
+    // The do-while loop is similar to while loop except that it
+    // tests the condition at the end of the loop.
+    // This means that it will at least execute the body once
+    var z = 1
+    do {
+        print("$z ")
+        z++
+    } while(z <= 10)
+
+    var feltTemp = "cold"
+    var roomTemp = 10
+    while (feltTemp == "cold"){
+        roomTemp++
+        if(roomTemp == 20){
+            feltTemp = "comfy"
+            println("it's comfy now")
         }
-     
-        var y = 1
-        while(y <= 10) {
-            println("$y ")
-            y++
-        }
+    }
+    println("************End Do While Loop*************")
+
+    // For Loop
+    // A for-loop is used to iterate through ranges, arrays, collections, or anything
+    // that provides an iterator (You’ll learn about iterator, arrays, ranges and collections in a future lectur    e).
+    for(num in 1..10) {
+        print("$num ")
+    }
+
+    // infix notation
+    for(i in 1 until 10) { // Same as - for(i in 1.until(10))
+        print("$i ")
+    }
+
+    for(i in 10 downTo 1) {     // Same as - for(i in 10.downTo(1))
+        print("$i ")
+    }
+
+    for(i in 1 until 10 step 2) { // Same as - for(i in 1.until(10).step(2))
+        print("$i ")
+    }
+    println("\n************End For Loop*************")
 }
