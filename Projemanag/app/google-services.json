@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "830070692880",
+    "project_id": "projemanag-423d6",
+    "storage_bucket": "projemanag-423d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830070692880:android:3044c7ddf9a17cd60d3e95",
+        "android_client_info": {
+          "package_name": "com.udemy.projemanag"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830070692880-ctjn0ps8t0pqu87fu9hvfivvc4ucn7v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD34hYraiOjJQn4xPNvR0oFnyC9x4oqtH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830070692880-ctjn0ps8t0pqu87fu9hvfivvc4ucn7v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

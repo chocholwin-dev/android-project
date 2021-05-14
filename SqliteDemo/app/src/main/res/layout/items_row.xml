@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/llMain"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Name"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:textStyle="bold"
+        tools:text=":"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/tvEmailId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@android:color/black"
+        tools:text="Email"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:contentDescription="image_edit"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_action_update"
+        android:foreground="?attr/selectableItemBackgroundBorderless"/>
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:contentDescription="image_delete"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_action_delete"/>
+</LinearLayout>

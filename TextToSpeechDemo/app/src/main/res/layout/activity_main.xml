@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is a text to speech demo."
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/edEnteredText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:hint="Enter Text"/>
+
+    <Button
+        android:id="@+id/btnSpeak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Press to speech the entered text"/>
+
+</LinearLayout>
