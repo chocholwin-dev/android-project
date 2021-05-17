@@ -1,5 +1,7 @@
 package com.udemy.happyplaces.models
 
+import java.io.Serializable
+
 // (Step 2 : Creating a Data Model Class with all the assumed values that Happy Place details will consists of. Will you this data class in all over the project even when dealing with local SQLite database. Here the latitude and longitude will be used later on.)
 // START
 /**
@@ -15,5 +17,5 @@ data class HappyPlaceModel(
     val location: String,
     val latitude: Double,
     val longitude: Double
-)
+): Serializable
 // END

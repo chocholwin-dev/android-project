@@ -50,6 +50,8 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
 
     private var mLatitude: Double = 0.0 // A variable which will hold the latitude value.
     private var mLongitude: Double = 0.0 // A variable which will hold the longitude value.
+    // A variable for data model class in which we will receive the details to edit.)
+    private var mHappyPlaceDetails: HappyPlaceModel? = null
 
     /**
      * This function is auto created by Android when the Activity Class is created.
@@ -75,7 +77,14 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
         }
         // END
 
-        // (Step 3 : Initializing the dateSetListener.)
+        // Assign the details to the variable of data model class which we have created above the details which we will receive through intent.)
+        if (intent.hasExtra(MainActivity.EXTRA_PLACE_DETAILS)) {
+            mHappyPlaceDetails =
+                intent.getSerializableExtra(MainActivity.EXTRA_PLACE_DETAILS) as HappyPlaceModel
+        }
+        // END
+
+        // Initializing the dateSetListener.)
         // START
         // https://www.tutorialkart.com/kotlin-android/android-datepicker-kotlin-example/
         // create an OnDateSetListener
@@ -91,6 +100,26 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
                 // END
             }
         // END
+
+        // Filling the existing details to the UI components to edit.)
+        if (mHappyPlaceDetails != null) {
+            supportActionBar?.title = "Edit Happy Place"
+
+            et_title.setText(mHappyPlaceDetails!!.title)
+            et_description.setText(mHappyPlaceDetails!!.description)
+            et_date.setText(mHappyPlaceDetails!!.date)
+            et_location.setText(mHappyPlaceDetails!!.location)
+            mLatitude = mHappyPlaceDetails!!.latitude
+            mLongitude = mHappyPlaceDetails!!.longitude
+
+            saveImageToInternalStorage = Uri.parse(mHappyPlaceDetails!!.image)
+
+            iv_place_image.setImageURI(saveImageToInternalStorage)
+
+            btn_save.text = "UPDATE"
+        }
+        // END
+
         // (Step 6 : We have extended the onClickListener above and the override method as onClick added and here we are setting a listener to date edittext.)
         et_date.setOnClickListener(this)
         tv_add_image.setOnClickListener(this)
@@ -151,7 +180,10 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
 
                         // Assigning all the values to data model class.
                         val happyPlaceModel = HappyPlaceModel(
-                            0,
+                            // Changing the id if it is for edit.)
+                            // START
+                            if (mHappyPlaceDetails == null) 0 else mHappyPlaceDetails!!.id,
+                            // END
                             et_title.text.toString(),
                             saveImageToInternalStorage.toString(),
                             et_description.text.toString(),
@@ -164,16 +196,24 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
                         // Here we initialize the database handler class.
                         val dbHandler = DatabaseHandler(this)
 
-                        val addHappyPlace = dbHandler.addHappyPlace(happyPlaceModel)
+                        // Call add or update details conditionally.)
+                        // START
+                        if (mHappyPlaceDetails == null) {
+                            val addHappyPlace = dbHandler.addHappyPlace(happyPlaceModel)
 
-                        if (addHappyPlace > 0) {
-                            Toast.makeText(
-                                this,
-                                "The happy place details are inserted successfully.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            finish();//finishing activity
+                            if (addHappyPlace > 0) {
+                                setResult(Activity.RESULT_OK);
+                                finish()//finishing activity
+                            }
+                        } else {
+                            val updateHappyPlace = dbHandler.updateHappyPlace(happyPlaceModel)
+
+                            if (updateHappyPlace > 0) {
+                                setResult(Activity.RESULT_OK);
+                                finish()//finishing activity
+                            }
                         }
+                        // END
                     }
                 }
             }
